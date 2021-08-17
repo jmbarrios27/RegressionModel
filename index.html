@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+      <head>
+        <meta charset="utf-8">
+        <title>MONTO NETO UTILIZANDO MACHINE LEARNING</title>
+        <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+		
+		<style>
+			.content {
+			  max-width: 500px;
+			  margin: auto;
+			}
+			
+			
+			.bg-img{
+		width: 100%;
+		height: 100vh;
+		background-image:linear-gradient(rgba(0, 0, 0, 0.71),rgba(0, 0, 0, 0.7)),url('telere.png');
+		background-size: cover;
+		background-position: center;
+			}
+			</style>
+    </head>
+	
+<body>
+<div class="bg-img">
+<div class="content">
+    <body>
+
+  
+        <h1>PREDICCIÓN DE MONTO NETO PARA ATM BASADO EN TRANSACCIONES Y TICKET DAIARIO, UTILIZANDO MACHINE LEARNING</h1>
+        <form action="{{url_for('predict')}}" method="post">
+            <input type="text" name="Priceperweek" placeholder="Transacciones" required="required">
+            <input type="text" name="Population" placeholder="Ticket Promedio Diario" required="required">
+            <button type="submit" class="btn btn-primary btn-block btn-large">Run</button>
+        </form>
+        <br>
+        <br>
+        {{ prediction_text }}   		
+</div>
+</div>
