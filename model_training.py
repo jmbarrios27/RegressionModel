@@ -2,7 +2,7 @@ import pandas as pd
 pd.set_option('display.float_format', lambda x: '%.2f' % x)
 import numpy as np
 np.set_printoptions(suppress=True, formatter={'float_kind': '{:.2f}'.format})
-import joblib
+import pickle
 
 # MACHINE LEARNING
 from sklearn.model_selection import train_test_split
@@ -65,3 +65,9 @@ def modeling_linear_regression(X_features, y_features):
     # Calling Function.
 # Llamando a la función y modelando.
 modelo, predicciones = modeling_linear_regression(X_features=X, y_features=y)
+
+# Saving model to disk
+pickle.dump(modelo, open('model.pkl','wb'))
+
+model = pickle.load(open('model.pkl','rb'))
+print(model.predict([[292000, 103]]))
